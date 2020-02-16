@@ -33,9 +33,9 @@ sensor = adafruit_amg88xx.AMG88XX(i2c_bus, addr=0x68)
 
 ## 参考情報
 RaspberryPiで赤外線アレイセンサAMG8833(Grid-EYE)からデータ取得  
-https://qiita.com/tm_nagoya/items/904ba8a23868ddcdcc54
-赤外線アレイセンサAMG8833(Grid-EYE)のデータを表示
-https://qiita.com/tm_nagoya/items/32d7e5becf73ba8a6110
-AMG8833のデータシート
-https://www.mouser.jp/datasheet/2/315/panasonic_04262016_AMG88-1480161.pdf
+https://qiita.com/tm_nagoya/items/904ba8a23868ddcdcc54  
+赤外線アレイセンサAMG8833(Grid-EYE)のデータを表示  
+https://qiita.com/tm_nagoya/items/32d7e5becf73ba8a6110  
+AMG8833のデータシート  
+https://www.mouser.jp/datasheet/2/315/panasonic_04262016_AMG88-1480161.pdf  
 
