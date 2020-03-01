@@ -13,9 +13,10 @@ time.sleep(.1)
 
 # 8x8ピクセルの画像とbicubic補間をした画像を並べて表示させる
 #plt.subplots(figsize=(8, 4))
+flg, ax = plt.subplots()
 
 #ウィンドウサイズ設定
-plt.figure()
+plt.figure(figsize=(4, 4), dpi=50)
 
 # ループ開始
 while True:
@@ -30,11 +31,17 @@ while True:
 
     # bicubic補間データ
 #    plt.subplot(1, 2, 2)
-    fig = plt.imshow(sens88, cmap="inferno", interpolation="bicubic")
-    plt.colorbar()
+#    fig = plt.imshow(sens88, cmap="inferno", interpolation="bicubic")
+#    plt.colorbar()
+
+    im = ax.imshow(sens88, cmap="inferno", interpolation="bicubic")
+    divider = make_axes_locatable(ax)
+    cax = divider.append_axes("right", size="5%", pad=0.1)
+    plt.colorbar(im, cax=cax)
 
     # plt.showだと止まってしまうので、pauseを使用
     # plt.clfしないとカラーバーが多数表示される
 #    plt.show()
     plt.pause(.1)
     plt.clf()
+    
