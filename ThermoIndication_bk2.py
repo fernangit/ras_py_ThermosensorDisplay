@@ -15,11 +15,7 @@ time.sleep(.1)
 #plt.subplots(figsize=(8, 4))
 
 #ウィンドウサイズ設定
-#plt.figure(figsize=(19.2, 10.8)) #フルHD
 plt.figure()
-#フルサイズで表示
-mng = plt.get_current_fig_manager()
-mng.resize(*mng.window.maxsize())
 
 # ループ開始
 while True:
@@ -34,8 +30,7 @@ while True:
 
     # bicubic補間データ
 #    plt.subplot(1, 2, 2)
-#    fig = plt.imshow(sens88, cmap="inferno", interpolation="bicubic")
-    fig = plt.imshow(sens88, cmap="inferno", interpolation="bicubic", vmin=20, vmax=35)
+    fig = plt.imshow(sens88, cmap="inferno", interpolation="bicubic")
     plt.colorbar()
 
     # plt.showだと止まってしまうので、pauseを使用
