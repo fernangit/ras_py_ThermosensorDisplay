@@ -21,11 +21,20 @@ plt.figure()
 mng = plt.get_current_fig_manager()
 mng.resize(*mng.window.maxsize())
 
+#係数
+coefficient = 1.1
+
 # ループ開始
 while True:
     # データ取得、numpy変換、1次元→2次元配列
-    sens88 = np.array(sensor.readPixels()).reshape([8, 8])
-    print(sens88)
+    sens88 = np.array(sensor.readPixels()).reshape([8, 8])*coefficient
+#    print(sens88)
+
+    #最大温度表示
+#    temp = sensor.readThermistor()
+    temp = sens88.max()
+#    print(temp)
+    plt.text(0.4, 0.6, str(round(temp, 1)), color='black', fontsize=40)
 
 #    # 8x8ピクセルのデータ
 #    plt.subplot(1, 2, 1)
@@ -35,11 +44,11 @@ while True:
     # bicubic補間データ
 #    plt.subplot(1, 2, 2)
 #    fig = plt.imshow(sens88, cmap="inferno", interpolation="bicubic")
-    fig = plt.imshow(sens88, cmap="inferno", interpolation="bicubic", vmin=20, vmax=35)
+    fig = plt.imshow(sens88, cmap="coolwarm", interpolation="bicubic", vmin=25, vmax=38)
     plt.colorbar()
 
     # plt.showだと止まってしまうので、pauseを使用
     # plt.clfしないとカラーバーが多数表示される
 #    plt.show()
-    plt.pause(.1)
+    plt.pause(0.01)
     plt.clf()
