@@ -34,7 +34,7 @@ while True:
 #    temp = sensor.readThermistor()
     temp = sens88.max()
 #    print(temp)
-    plt.text(0.4, 0.6, str(round(temp, 1)), color='black', fontsize=40)
+    plt.text(0.4, 0.6, str(round(temp, 1))+'℃', color='black', fontsize=40)
 
 #    # 8x8ピクセルのデータ
 #    plt.subplot(1, 2, 1)
