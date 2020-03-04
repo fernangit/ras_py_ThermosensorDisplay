@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+# coding: utf-8
 import time
 import numpy as np
 import matplotlib.pyplot as plt
@@ -8,47 +8,47 @@ from Adafruit_AMG88xx import Adafruit_AMG88xx
 
 sensor = Adafruit_AMG88xx()
 
-# ƒZƒ“ƒT[‚Ì‰Šú‰»‘Ò‚¿
+# ã‚»ãƒ³ã‚µãƒ¼ã®åˆæœŸåŒ–å¾…ã¡
 time.sleep(.1)
 
-# 8x8ƒsƒNƒZƒ‹‚Ì‰æ‘œ‚Æbicubic•âŠÔ‚ğ‚µ‚½‰æ‘œ‚ğ•À‚×‚Ä•\¦‚³‚¹‚é
+# 8x8ãƒ”ã‚¯ã‚»ãƒ«ã®ç”»åƒã¨bicubicè£œé–“ã‚’ã—ãŸç”»åƒã‚’ä¸¦ã¹ã¦è¡¨ç¤ºã•ã›ã‚‹
 #plt.subplots(figsize=(8, 4))
 
-#ƒEƒBƒ“ƒhƒEƒTƒCƒYİ’è
-#plt.figure(figsize=(19.2, 10.8)) #ƒtƒ‹HD
+#ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã‚µã‚¤ã‚ºè¨­å®š
+#plt.figure(figsize=(19.2, 10.8)) #ÂƒtÂƒÂ‹HD
 plt.figure()
-#ƒtƒ‹ƒTƒCƒY‚Å•\¦
+#ãƒ•ãƒ«ã‚µã‚¤ã‚ºã§è¡¨ç¤º
 mng = plt.get_current_fig_manager()
 mng.resize(*mng.window.maxsize())
 
-#ŒW”
+#ä¿‚æ•°
 coefficient = 1.1
 
-# ƒ‹[ƒvŠJn
+# ãƒ«ãƒ¼ãƒ—é–‹å§‹
 while True:
-    # ƒf[ƒ^æ“¾Anumpy•ÏŠ·A1ŸŒ³¨2ŸŒ³”z—ñ
+    # ãƒ‡ãƒ¼ã‚¿å–å¾—ã€numpyå¤‰æ›ã€1æ¬¡å…ƒâ†’2æ¬¡å…ƒé…åˆ—
     sens88 = np.array(sensor.readPixels()).reshape([8, 8])*coefficient
 #    print(sens88)
 
-    #Å‘å‰·“x•\¦
+    #æœ€å¤§æ¸©åº¦è¡¨ç¤º
 #    temp = sensor.readThermistor()
     temp = sens88.max()
 #    print(temp)
-    plt.text(0.4, 0.6, str(round(temp, 1))+'', color='black', fontsize=40)
+    plt.text(0.4, 0.6, str(round(temp, 1))+'â„ƒ', color='black', fontsize=40)
 
-#    # 8x8ƒsƒNƒZƒ‹‚Ìƒf[ƒ^
+#    # 8x8ãƒ”ã‚¯ã‚»ãƒ«ã®ãƒ‡ãƒ¼ã‚¿
 #    plt.subplot(1, 2, 1)
 #    fig = plt.imshow(sensordata, cmap="inferno")
 #    plt.colorbar()
 
-    # bicubic•âŠÔƒf[ƒ^
+    # bicubicè£œé–“ãƒ‡ãƒ¼ã‚¿
 #    plt.subplot(1, 2, 2)
 #    fig = plt.imshow(sens88, cmap="inferno", interpolation="bicubic")
     fig = plt.imshow(sens88, cmap="coolwarm", interpolation="bicubic", vmin=25, vmax=38)
     plt.colorbar()
 
-    # plt.show‚¾‚Æ~‚Ü‚Á‚Ä‚µ‚Ü‚¤‚Ì‚ÅApause‚ğg—p
-    # plt.clf‚µ‚È‚¢‚ÆƒJƒ‰[ƒo[‚ª‘½”•\¦‚³‚ê‚é
+    # plt.showã ã¨æ­¢ã¾ã£ã¦ã—ã¾ã†ã®ã§ã€pauseã‚’ä½¿ç”¨
+    # plt.clfã—ãªã„ã¨ã‚«ãƒ©ãƒ¼ãƒãƒ¼ãŒå¤šæ•°è¡¨ç¤ºã•ã‚Œã‚‹
 #    plt.show()
     plt.pause(0.01)
     plt.clf()
