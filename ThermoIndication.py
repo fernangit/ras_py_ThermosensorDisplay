@@ -15,14 +15,14 @@ time.sleep(.1)
 #plt.subplots(figsize=(8, 4))
 
 #ウィンドウサイズ設定
-#plt.figure(figsize=(19.2, 10.8)) #tHD
+#plt.figure(figsize=(19.2, 10.8)) #FullHD
 plt.figure()
 #フルサイズで表示
 mng = plt.get_current_fig_manager()
 mng.resize(*mng.window.maxsize())
 
 #係数
-coefficient = 1.1
+coefficient = 1.0
 
 # ループ開始
 while True:
